@@ -1,0 +1,9 @@
+- In HTML , css, and vanilla js
+- On input give suggestions
+
+What are the requirements
+
+- It should be performant enogh
+- It should not have many network call
+- It should per reusable
+- Data should persist

@@ -1,0 +1,26 @@
+.auto-input {
+  text-align: center;
+}
+
+input {
+  width: calc(100% - 200px);
+  border-radius: 4px;
+  height: 30px;
+  padding: 5px;
+}
+
+input:focus {
+  border: 2px solid blue;
+}
+
+#suggestions-list {
+  display: none;
+  margin-top: 20px;
+  overflow-y: visible;
+  max-height: 300px;
+  text-align: center;
+}
+
+.suggestion-visible {
+  display: block !important;
+}
