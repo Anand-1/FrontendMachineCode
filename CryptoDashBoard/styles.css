@@ -1,9 +1,35 @@
 .main-dashboard {
   text-align: center;
+  border: 5px solid rebeccapurple;
+  font-family: "Roboto", sans-serif;
 }
 
-.card-container {
+.heading-section {
+  margin: 10px;
+  padding: 10px;
+  background-color: chocolate;
+}
+
+#card-container {
   border: 1px solid gray;
   border-radius: 5px;
   box-shadow: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.price-box {
+  background-color: burlywood;
+  padding: 5px;
+}
+
+.image-box {
+  height: 50px;
+  width: 50px;
+}
+
+.card-box {
+  text-align: center;
+  padding: 5px;
+  border: 2px solid grey;
+  margin: 5px;
 }
