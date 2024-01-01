@@ -1,11 +1,9 @@
-// script.js
-
 // To access the stars
 let stars = document.getElementsByClassName("star");
 let output = document.getElementById("output");
 
 // Funtion to update rating
-function gfg(n) {
+function rateStar(n) {
   remove();
   for (let i = 0; i < n; i++) {
     if (n == 1) cls = "one";

@@ -1,14 +1,15 @@
-console.log("Todo List");
 let dataList = [];
 let localValue = "";
 const handleInputChange = () => {
   localValue = event.target.value;
 };
 const saveItem = () => {
-  dataList.push(localValue);
-  renderItems(dataList);
-  localValue = "";
-  inputBox.innerHTML = "";
+  if (localValue !== "") {
+    dataList.push(localValue);
+    renderItems(dataList);
+    localValue = "";
+    inputBox.innerHTML = "";
+  }
 };
 
 const renderItems = (list = []) => {

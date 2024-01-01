@@ -1,26 +1,69 @@
-.auto-input {
-  text-align: center;
-  margin: 20%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  --shadow: rgba(0, 0, 0, 0.05) 0px 6px 10px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  --color: #166e67;
+  --gap: 0.5rem;
+  --radius: 5px;
 }
-#input-button {
-  border-radius: 4px;
-  padding: 12px 20px;
-  color: white;
-  background-color: black;
-  margin-left: 20px;
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  background-color: aquamarine;
+  min-height: 97vh;
+}
+.auto-input {
+  background-color: aliceblue;
+  text-align: center;
+  padding: 10px;
+  margin: 50px 0;
+  width: 50%;
+}
+.heading-content {
+  background-color: blueviolet;
+  padding: 20px 0px;
+  margin-top: 0px;
 }
 
 input {
   border-radius: 4px;
-  height: 30px;
+  height: 40px;
   padding: 5px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 input:focus {
   border: 2px solid blue;
 }
 
+#input-button {
+  display: block;
+  border-radius: 4px;
+  padding: 10px 0px;
+  color: white;
+  background-color: black;
+  margin: 10px 0;
+  width: 100%;
+}
+
 .list-container {
   margin-top: 20px;
-  border: 1px solid gray;
+  border: 2px solid gray;
+}
+
+.list-heading {
+  padding: 5px 0;
+  background-color: blanchedalmond;
+}
+
+.items-visible {
+  border: dotted black;
+  margin: 5px;
+  color: #166e67;
+  overflow: hidden;
 }

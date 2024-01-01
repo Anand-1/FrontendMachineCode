@@ -1,5 +1,18 @@
+* {
+  height: 100%;
+}
 .main-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.star-rate-container {
+  height: max-content;
+  background-color: aliceblue;
+  padding: 20px;
+  border: 2px dotted grey;
 }
 
 .star {
