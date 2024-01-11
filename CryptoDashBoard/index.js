@@ -1,6 +1,4 @@
-let localData = [];
-
-function fetchData() {
+function fetchData(localData = []) {
   fetch(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=1000&page=1&sparkline=false"
   )
@@ -15,10 +13,10 @@ function fetchData() {
     });
 }
 
-function populateBox(data) {
+function populateBox(datas) {
   let dataFragment = document.createDocumentFragment();
-  for (let index = 0; index < data.length; index++) {
-    const element = data[index];
+  datas.forEach((data) => {
+    const element = data;
     let mainelement = document.createElement("div");
     let priceElement = document.createElement("div");
     let imgElement = document.createElement("img");
@@ -33,7 +31,7 @@ function populateBox(data) {
     mainelement.appendChild(priceElement);
 
     dataFragment.appendChild(mainelement);
-  }
+  });
   card.appendChild(dataFragment);
 }
 

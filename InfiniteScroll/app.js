@@ -21,8 +21,8 @@
 
       quoteEl.innerHTML = `
             <span>${quote.id})</span>
-            ${quote.quote}
-            <footer>${quote.author}</footer>
+            <span class="qoute-info">${quote.quote}</span>
+            <footer>- ${quote.author}</footer>
         `;
 
       quotesEl.appendChild(quoteEl);
@@ -77,7 +77,6 @@
     () => {
       const { scrollTop, scrollHeight, clientHeight } =
         document.documentElement;
-
       if (
         scrollTop + clientHeight >= scrollHeight - 5 &&
         hasMoreQuotes(currentPage, limit, total)

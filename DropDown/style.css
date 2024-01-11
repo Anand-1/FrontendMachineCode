@@ -73,5 +73,5 @@ body {
 
 .arrow {
   transform: rotate(180deg);
-  transition: 0.2s ease;
+  transition: 1s ease;
 }

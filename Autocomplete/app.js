@@ -19,9 +19,11 @@ const getSuggestions = (keyword) => {
   //   (i) =>
   //     i.city.substr(0, keyword.length).toLowerCase() === keyword.toLowerCase()
   // );
+
   let result = suggestionsData.filter((i) =>
     i.city.toLowerCase().includes(keyword)
   );
+
   return new Promise((res) => {
     setTimeout(() => {
       res(result);
@@ -34,7 +36,6 @@ const renderItems = (list = []) => {
   list.forEach((item) => {
     let el = document.createElement("div");
     el.innerHTML = item.city;
-    el.classList.add("items-visible");
     suggestionFrag.appendChild(el);
   });
   suggestionsBox.innerHTML = "";
