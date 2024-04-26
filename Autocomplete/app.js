@@ -9,11 +9,10 @@ const suggestionsData = [
   { city: "Darbhanga" },
   { city: "Goa" },
   { city: "Pondi" },
-  { city: "Mumbai" },
   { city: "Chennai" },
   { city: "Hyderabad" },
 ];
-
+// Step 4: (getting suggestions from keyword )
 const getSuggestions = (keyword) => {
   // let result = suggestionsData.filter(
   //   (i) =>
@@ -30,7 +29,7 @@ const getSuggestions = (keyword) => {
     }, 0);
   });
 };
-
+// Step 4 : (rendering suggestions)
 const renderItems = (list = []) => {
   const suggestionFrag = document.createDocumentFragment();
   list.forEach((item) => {
@@ -41,22 +40,34 @@ const renderItems = (list = []) => {
   suggestionsBox.innerHTML = "";
   suggestionsBox.appendChild(suggestionFrag);
 };
-
-const handleInputChange = (event) => {
-  let value = event.target.value;
-  if (value == "") {
-    suggestionsBox.classList.remove("suggestion-visible");
-  } else {
-    getSuggestions(value).then((suggestions) => {
-      if (suggestions.length) {
-        suggestionsBox.classList.add("suggestion-visible");
-        renderItems(suggestions);
-      } else {
-        suggestionsBox.classList.remove("suggestion-visible");
-      }
-    });
-  }
+// Step 3 : (populating with suggestions)
+const populateSuggestions = (value) => {
+  getSuggestions(value).then((suggestions) => {
+    if (suggestions.length) {
+      suggestionsBox.classList.add("suggestion-visible");
+      renderItems(suggestions);
+    } else {
+      suggestionsBox.classList.remove("suggestion-visible");
+    }
+  });
 };
+// Step 2 : (taking input , providing debounce in progress)
+const handleInputChange = (event) => {
+  let timer;
+
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    var value = event.target.value;
+    console.log(value);
+    if (value == "") {
+      suggestionsBox.classList.remove("suggestion-visible");
+    } else {
+      populateSuggestions(value);
+    }
+  }, 1000);
+};
+
+//Step : 1 (attaching to HTML and providing eventlisteners)
 const inputBox = document.getElementById("input-text");
 const suggestionsBox = document.getElementById("suggestions-list");
 

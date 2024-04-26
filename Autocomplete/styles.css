@@ -50,7 +50,7 @@ input:focus {
 }
 
 .suggestion-visible > div {
-  background-color: blueviolet;
+  background-color: rgb(33, 53, 201);
   border: 1px solid red;
   margin: 2px;
   padding: 5px;
