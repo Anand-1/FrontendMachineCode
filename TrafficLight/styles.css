@@ -1,0 +1,35 @@
+.container-body {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  background-color: black;
+  height: 400px;
+  width: 157px;
+  margin: auto;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin: 18px;
+  border-radius: 50%;
+  padding: 10px;
+  padding-top: 10px;
+  opacity: 0;
+}
+
+.red {
+  background-color: red;
+}
+.yellow {
+  background-color: yellow;
+}
+.green {
+  background-color: green;
+}
+
+.active {
+  opacity: 1;
+}

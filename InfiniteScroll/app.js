@@ -1,4 +1,10 @@
+// Everthing needs to be wrapped in anonymous functions
+// In HTML we need to select one quoues section and one loader section
+// Get Data from API (which needs page & limit)
+// Display
+
 (function () {
+  //step 1:
   const quotesEl = document.querySelector(".quotes");
   const loaderEl = document.querySelector(".loader");
 
@@ -90,6 +96,6 @@
     }
   );
 
-  // initialize
+  // Step 1 :  initialize
   loadQuotes(currentPage, limit);
 })();

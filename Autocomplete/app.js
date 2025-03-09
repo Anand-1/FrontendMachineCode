@@ -1,3 +1,9 @@
+// Data in form of array of oobjects
+// Step1 : attaching to HTML and providing eventlisteners
+// Step2 : taking input , providing debounce in progress
+// Step3 : getting suggestions from keyword as per input
+// Step4 : populating with suggestions
+// Step5 : rendering suggestions
 const suggestionsData = [
   { city: "Samastipur" },
   { city: "Patna" },
@@ -12,7 +18,7 @@ const suggestionsData = [
   { city: "Chennai" },
   { city: "Hyderabad" },
 ];
-// Step 4: (getting suggestions from keyword )
+// Step 2: (getting suggestions from keyword )
 const getSuggestions = (keyword) => {
   // let result = suggestionsData.filter(
   //   (i) =>
@@ -29,7 +35,7 @@ const getSuggestions = (keyword) => {
     }, 0);
   });
 };
-// Step 4 : (rendering suggestions)
+// Step 5 : (rendering suggestions)
 const renderItems = (list = []) => {
   const suggestionFrag = document.createDocumentFragment();
   list.forEach((item) => {
@@ -51,6 +57,7 @@ const populateSuggestions = (value) => {
     }
   });
 };
+
 // Step 2 : (taking input , providing debounce in progress)
 const handleInputChange = (event) => {
   let timer;
