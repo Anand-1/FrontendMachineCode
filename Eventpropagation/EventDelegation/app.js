@@ -1,19 +1,17 @@
-//Inserting some random links
-let dropdownMenus = document.getElementsByClassName("dropdown-menu")[0];
-dropdownMenus.forEach(function (menu) {
-  for (let i = 1; i <= Math.floor(Math.random() * 2) + 4; i++) {
-    let link = document.createElement("li");
-    link.innerHTML = `<a href="#">Link ${i}</a>`;
-    menu.appendChild(link);
-  }
+//without Event Delegation
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    console.log(event.target.innerText);
+  });
 });
 
-//Navbar interaction using Event Delegation
-document.querySelector(".menu").addEventListener("click", function (event) {
-  let target = event.target;
-  if (target.classList.contains("dropdown-toggle")) {
-    let dropdown = target.nextElementSibling;
-    dropdown.style.display =
-      dropdown.style.display === "block" ? "none" : "block";
+//============================================
+// With Event Delegation
+const div = document.querySelector("div");
+
+div.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    console.log(event.target.innerText);
   }
 });
