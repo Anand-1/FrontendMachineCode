@@ -4,20 +4,8 @@
 // Step3 : getting suggestions from keyword as per input
 // Step4 : populating with suggestions
 // Step5 : rendering suggestions
-const suggestionsData = [
-  { city: "Samastipur" },
-  { city: "Patna" },
-  { city: "Delhi" },
-  { city: "Kolkata" },
-  { city: "Bangalore" },
-  { city: "Pune" },
-  { city: "Mumbai" },
-  { city: "Darbhanga" },
-  { city: "Goa" },
-  { city: "Pondi" },
-  { city: "Chennai" },
-  { city: "Hyderabad" },
-];
+
+import suggestionsData from "./suggestions.json" with {type:"json"}
 // Step 2: (getting suggestions from keyword )
 const getSuggestions = (keyword) => {
   // let result = suggestionsData.filter(
