@@ -1,4 +1,4 @@
-// Data in form of array of oobjects
+// Data in form of array of objects
 // Step1 : attaching to HTML and providing eventlisteners
 // Step2 : taking input , providing debounce in progress
 // Step3 : getting suggestions from keyword as per input
@@ -8,11 +8,6 @@
 import suggestionsData from "./suggestions.json" with {type:"json"}
 // Step 2: (getting suggestions from keyword )
 const getSuggestions = (keyword) => {
-  // let result = suggestionsData.filter(
-  //   (i) =>
-  //     i.city.substr(0, keyword.length).toLowerCase() === keyword.toLowerCase()
-  // );
-
   let result = suggestionsData.filter((i) =>
     i.city.toLowerCase().includes(keyword)
   );
@@ -47,19 +42,17 @@ const populateSuggestions = (value) => {
 };
 
 // Step 2 : (taking input , providing debounce in progress)
+let debounceTimer;
 const handleInputChange = (event) => {
-  let timer;
-
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    var value = event.target.value;
-    console.log(value);
-    if (value == "") {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    const value = event.target.value;
+    if (value === "") {
       suggestionsBox.classList.remove("suggestion-visible");
     } else {
       populateSuggestions(value);
     }
-  }, 1000);
+  }, 300);
 };
 
 //Step : 1 (attaching to HTML and providing eventlisteners)

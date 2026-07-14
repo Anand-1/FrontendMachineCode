@@ -2,61 +2,102 @@ console.log('App is running');
 import data from './data.js';
 
 const fileList = document.getElementById('file-list');
+const contentTitle = document.querySelector('.content h3');
+const contentText = document.querySelector('.content p');
+const newFolderBtn = document.getElementById('new-folder-btn');
+const newFileBtn = document.getElementById('new-file-btn');
 
-// Populate file list
-data.files.forEach(file => {
+let explorerItems = [...data.files];
+
+function renderItems(items) {
+  fileList.innerHTML = '';
+
+  items.forEach((file, index) => {
     const fileItem = document.createElement('div');
-    fileItem.addEventListener('click', () => {
-        // renderItem(fileItem);
-    });
-    fileItem.addEventListener('mouseover', () => {
-        fileItem.style.backgroundColor = '#f0f0f0';
-    });
-    fileItem.addEventListener('mouseout', () => {
-        fileItem.style.backgroundColor = '';
-    }); 
-    fileItem.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        createItem(fileItem);
-    });
-    fileItem.className = 'file-item';
-    fileItem.textContent = `${createIcon(file.type)} ${file.name}`;
-    fileList.appendChild(fileItem);
-});   
+    const label = document.createElement('span');
 
-// Function to create a folder item when a file is clicked
-function createItem(fileItem) {
-    const folderItemInput = document.createElement('input');
-    fileItem.appendChild(folderItemInput);
-    folderItemInput.type = 'text';
-    folderItemInput.placeholder = 'Enter folder name';
-    folderItemInput.addEventListener('mouseover', () => {
-        folderItemInput.style.backgroundColor = '#f0f0f0';
+    fileItem.className = 'file-item';
+    fileItem.dataset.index = index;
+    label.textContent = `${createIcon(file.type)} ${file.name}`;
+
+    fileItem.addEventListener('click', () => {
+      selectItem(fileItem, file, index);
     });
-    folderItemInput.addEventListener('mouseout', () => {
-        folderItemInput.style.backgroundColor = '';
-        const inputText = folderItemInput.value.trim();
-        folderItemInput.remove();
-        if (inputText) {
-            const folderItem = document.createElement('div');
-            folderItem.className = 'folder-item';
-            const iconType = inputText.split('.')[1] || 'folder';
-            folderItem.textContent = `${createIcon(iconType)}  ${inputText}`;
-            fileItem.appendChild(folderItem);
-        }
+
+    fileItem.addEventListener('mouseover', () => {
+      fileItem.classList.add('hovered');
     });
+
+    fileItem.addEventListener('mouseout', () => {
+      fileItem.classList.remove('hovered');
+    });
+
+    fileItem.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      createItem('folder');
+    });
+
+    fileItem.appendChild(label);
+    fileList.appendChild(fileItem);
+  });
 }
 
-//  Function to create an icon based on file type
+function selectItem(fileItem, file, index) {
+  document.querySelectorAll('.file-item.active').forEach((item) => {
+    item.classList.remove('active');
+  });
+
+  fileItem.classList.add('active');
+  contentTitle.textContent = file.name;
+  contentText.textContent = `${file.type} • ${file.size} • Modified ${file.modified}`;
+  fileItem.dataset.index = index;
+}
+
+function createItem(type = 'folder') {
+  const promptLabel = type === 'folder' ? 'Enter folder name' : 'Enter file name';
+  const defaultName = type === 'folder' ? 'New Folder' : 'New File.txt';
+  const enteredName = window.prompt(promptLabel, defaultName);
+
+  if (!enteredName) return;
+
+  const name = enteredName.trim();
+  if (!name) return;
+
+  const newItem = {
+    name,
+    type: type === 'folder' ? 'folder' : 'text',
+    size: '0KB',
+    modified: new Date().toISOString().slice(0, 10),
+  };
+
+  explorerItems.push(newItem);
+  renderItems(explorerItems);
+
+  const newIndex = explorerItems.length - 1;
+  const newElement = fileList.children[newIndex];
+  if (newElement) {
+    selectItem(newElement, explorerItems[newIndex], newIndex);
+  }
+}
+
 function createIcon(type) {
-    switch(type) {
-        case 'text':
-            return '📄';
-        case 'image':
-            return '🖼️';
-        case 'document':
-            return '📑';
-        default:
-            return '📁';
-    }
+  switch (type) {
+    case 'text':
+      return '📄';
+    case 'image':
+      return '🖼️';
+    case 'document':
+      return '📑';
+    case 'folder':
+    default:
+      return '📁';
+  }
+}
+
+newFolderBtn.addEventListener('click', () => createItem('folder'));
+newFileBtn.addEventListener('click', () => createItem('file'));
+
+renderItems(explorerItems);
+if (explorerItems.length) {
+  selectItem(fileList.firstElementChild, explorerItems[0], 0);
 }

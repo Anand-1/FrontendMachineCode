@@ -7,78 +7,82 @@
   var resetBtn = document.querySelector(".reset");
 
   var countdownTimer = null;
+  var isRunning = false;
 
-  // Start Timer Button - START
-  startBtn.addEventListener("click", function () {
-    if (hour.value == 0 && min.value == 0 && sec.value == 0) return;
-
-    function startInterval() {
-      startBtn.style.display = "none";
-      stopBtn.style.display = "initial";
-
-      countdownTimer = setInterval(function () {
-        timer();
-      }, 1000);
-    }
-    startInterval();
-  });
-  // Start Timer Button - END
-
-  function timer() {
-    // Formatting the time - START
-    if (sec.value > 60) {
-      min.value++;
-      sec.value = parseInt(sec.value) - 59;
-    }
-    if (min.value > 60) {
-      hour.value++;
-      min.value = parseInt(min.value) - 60;
-    }
-    min.value = min.value > 60 ? 60 : min.value;
-    // Formatting the time - END
-
-    // Updating the Time - START
-    if (hour.value == 0 && min.value == 0 && sec.value == 0) {
-      hour.value = "";
-      min.value = "";
-      sec.value = "";
-      stopInterval();
-    } else if (sec.value != 0) {
-      sec.value = `${sec.value <= 10 ? "0" : ""}${sec.value - 1}`;
-    } else if (min.value != 0 && sec.value == 0) {
-      sec.value = 59;
-      min.value = `${min.value <= 10 ? "0" : ""}${min.value - 1}`;
-    } else if (hour.value != 0 && min.value == 0) {
-      min.value = 60;
-      hour.value = `${hour.value <= 10 ? "0" : ""}${hour.value - 1}`;
-    }
-    return;
-    // Updating the Time - END
+  function pad(value) {
+    return String(value).padStart(2, "0");
   }
 
-  // Stop Interval Logic - START
-  function stopInterval(state) {
-    startBtn.innerHTML = state === "pause" ? "Continue" : "Start";
+  function parseTimeValue(input) {
+    var value = parseInt(input.value, 10);
+    return Number.isNaN(value) ? 0 : value;
+  }
 
+  function setTimeDisplay(hours, minutes, seconds) {
+    hour.value = pad(hours);
+    min.value = pad(minutes);
+    sec.value = pad(seconds);
+  }
+
+  function getTotalSeconds() {
+    return parseTimeValue(hour) * 3600 + parseTimeValue(min) * 60 + parseTimeValue(sec);
+  }
+
+  function startInterval() {
+    if (isRunning) return;
+
+    var totalSeconds = getTotalSeconds();
+    if (totalSeconds <= 0) return;
+
+    isRunning = true;
+    startBtn.style.display = "none";
+    stopBtn.style.display = "initial";
+
+    countdownTimer = setInterval(function () {
+      timer();
+    }, 1000);
+  }
+
+  function stopInterval(state) {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+
+    isRunning = false;
+    startBtn.innerHTML = state === "pause" ? "Continue" : "Start";
     stopBtn.style.display = "none";
     startBtn.style.display = "initial";
-    clearInterval(countdownTimer);
   }
-  // Stop Interval Logic - END
 
-  // Stop Timer Button - START
+  function timer() {
+    var totalSeconds = getTotalSeconds();
+
+    if (totalSeconds <= 1) {
+      setTimeDisplay(0, 0, 0);
+      stopInterval();
+      return;
+    }
+
+    totalSeconds -= 1;
+
+    var hours = Math.floor(totalSeconds / 3600);
+    var minutes = Math.floor((totalSeconds % 3600) / 60);
+    var seconds = totalSeconds % 60;
+
+    setTimeDisplay(hours, minutes, seconds);
+  }
+
+  startBtn.addEventListener("click", function () {
+    startInterval();
+  });
+
   stopBtn.addEventListener("click", function () {
     stopInterval("pause");
   });
-  // Start Timer Button - END
 
-  // Reset Timer Button - START
   resetBtn.addEventListener("click", function () {
-    hour.value = "";
-    min.value = "";
-    sec.value = "";
-
+    setTimeDisplay(0, 0, 0);
     stopInterval();
   });
-  // Reset Timer Button - END
 })();

@@ -1,8 +1,39 @@
-.file-item{
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin: 5px;
-    cursor: pointer;        
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.action-btn {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.file-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.file-item.hovered,
+.file-item.active {
+  background-color: #f0f0f0;
+}
+
+.folder-item {
+  margin: 6px 0 0 20px;
+  padding: 6px 0;
+  color: #444;
+}
+
+.new-item-input {
+  margin: 6px 0 0 20px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  width: calc(100% - 24px);
 }
 
 .container {
@@ -32,5 +63,5 @@
 }
 .container div.footer {
   grid-area: footer;
-  text-align: center;  
+  text-align: center;
 }

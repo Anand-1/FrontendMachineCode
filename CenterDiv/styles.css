@@ -5,18 +5,17 @@
     margin-inline: auto;
     background-color: aqua;
 } */
-/* 
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: aquamarine;
     height: 100vh;
-} */
+}
 
-.container{
+/* .container{
     display: grid;
     place-content: center;
     height: 100vh;
     background-color: rgb(208, 208, 232);
-}
+} */
