@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drum Kit</title>
-    <link rel="stylesheet" href="../styles.css" />
-
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Drum Kit</h1>
-    <hr>
-    
+    <main class="container">
+        <header>
+            <h1>Drum Kit</h1>
+            <p>Click a pad or press the matching key to play a sound.</p>
+        </header>
+
+        <section class="drum-grid">
+            <button class="drum-pad" data-key="A" data-sound="kick">
+                <span class="key">A</span>
+                <span class="label">Kick</span>
+            </button>
+            <button class="drum-pad" data-key="S" data-sound="snare">
+                <span class="key">S</span>
+                <span class="label">Snare</span>
+            </button>
+            <button class="drum-pad" data-key="D" data-sound="hihat">
+                <span class="key">D</span>
+                <span class="label">Hi-Hat</span>
+            </button>
+            <button class="drum-pad" data-key="F" data-sound="tom">
+                <span class="key">F</span>
+                <span class="label">Tom</span>
+            </button>
+            <button class="drum-pad" data-key="G" data-sound="clap">
+                <span class="key">G</span>
+                <span class="label">Clap</span>
+            </button>
+            <button class="drum-pad" data-key="H" data-sound="ride">
+                <span class="key">H</span>
+                <span class="label">Ride</span>
+            </button>
+            <button class="drum-pad" data-key="J" data-sound="shaker">
+                <span class="key">J</span>
+                <span class="label">Shaker</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>

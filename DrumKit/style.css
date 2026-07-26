@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #131528 0%, #1f2240 100%);
+    color: #f8f8ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+header p {
+    margin: 0 0 32px;
+    color: #cdd3ff;
+    font-size: 1rem;
+}
+
+.drum-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.drum-pad {
+    border: none;
+    border-radius: 22px;
+    padding: 24px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f8f8ff;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.drum-pad:hover,
+.drum-pad:focus-visible {
+    transform: translateY(-3px);
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.drum-pad.active {
+    background: linear-gradient(135deg, #ff6b6b, #ffd86f);
+    color: #1a1a1a;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.drum-pad .key {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.drum-pad .label {
+    display: block;
+    font-size: 1rem;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .drum-pad {
+        padding: 20px 14px;
+    }
+
+    .drum-pad .key {
+        font-size: 2rem;
+    }
+}
