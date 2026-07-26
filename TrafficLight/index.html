@@ -4,19 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Traffic Light</title>
+    <link rel="stylesheet" href="../styles.css" />
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="container-body">
-    <h1>Traffic Light</h1>
-    <div class="container">
-        <div class="circle red active"></div>
-        <div class="circle yellow"></div>
-        <div class="circle green"></div>
-    </div>
+<body>
+    <main class="container-body">
+        <header>
+            <h1>Traffic Light</h1>
+            <hr>
+        </header>
 
+        <section class="action-section">
+            <div class="traffic-container" aria-label="Traffic light">
+                <div class="circle red active"></div>
+                <div class="circle yellow"></div>
+                <div class="circle green"></div>
+            </div>
+            <div class="character">
+                <img src="tom_waiting.gif" alt="Tom waiting at the traffic light">
+            </div>
+        </section>
+
+        <img class="grass-bed" src="grass-green.png" alt="Grass bed">
+    </main>
+
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 
 </html>
