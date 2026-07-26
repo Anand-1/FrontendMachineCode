@@ -65,6 +65,13 @@ header hr {
   padding: 1rem 0;
 }
 
+.tom{
+  width: 500px;
+  height: 400px;
+  background: transparent;
+  display: none;
+}
+
 .circle {
   width: 96px;
   height: 96px;
@@ -80,6 +87,10 @@ header hr {
   transform: scale(1.05);
 }
 
+.tom.active{
+  display: block;
+}
+
 .red {
   background-color: #dc2626;
 }
@@ -92,20 +103,9 @@ header hr {
   background-color: #22c55e;
 }
 
-.character img,
-.grass-bed {
-  display: block;
+.character img {
   max-width: 100%;
-  height: auto;
   border-radius: 1.5rem;
-}
-
-.character {
-  max-width: 320px;
-}
-
-.grass-bed {
-  margin-top: 2rem;
 }
 
 @media (max-width: 640px) {

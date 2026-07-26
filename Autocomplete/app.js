@@ -60,3 +60,9 @@ const inputBox = document.getElementById("input-text");
 const suggestionsBox = document.getElementById("suggestions-list");
 
 inputBox.addEventListener("input", handleInputChange);
+
+function applyRandomColor() {
+  const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+  document.body.style.backgroundColor = randomColor;
+}
+applyRandomColor();

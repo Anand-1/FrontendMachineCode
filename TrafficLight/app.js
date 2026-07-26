@@ -2,12 +2,16 @@
 console.log("Traffic Light Loaded!");
 
 const lights = document.querySelectorAll(".circle");
-const durations = [3000, 1000, 3000];
+const toms = document.querySelectorAll(".tom")
+const durations = [1000, 1000, 1000];
 let currentLight = 0;
-
+console.log(lights)
 function colorChange() {
   lights.forEach((light, index) => {
     light.classList.toggle("active", index === currentLight);
+  });
+  toms.forEach((tom, index) => {
+    tom.classList.toggle("active", index === currentLight);
   });
 
   setTimeout(() => {
@@ -17,5 +21,3 @@ function colorChange() {
 }
 
 colorChange();
-
-// https://blog.stackademic.com/building-a-traffic-light-system-a-fun-take-on-frontend-interviews-9b3ae6d876b7
