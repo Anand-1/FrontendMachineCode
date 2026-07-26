@@ -15,7 +15,7 @@ body {
   padding: 0;
   line-height: 1.6;
   word-spacing: 1.4px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Courier New", Courier, monospace;
   color: var(--clr-dark);
   background-color: var(--clr-light);
   text-align: center;
