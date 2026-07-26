@@ -13,7 +13,7 @@ function populateBox() {
     const element = document.createDocumentFragment()
     const mainElement = document.createElement('div')
     mainElement.classList.add('box-info')
-    mainElement.innerText = item.info;
+    mainElement.innerText = index + '. '+ item.info;
     const link = document.createElement('a');
     link.href = item.link;
     link.textContent = item.name + ' >';
