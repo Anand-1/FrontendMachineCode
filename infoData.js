@@ -5,22 +5,22 @@ export const data = [
     link:'Accordion'
   },
   {
-    name: 'Autocomplete',
+    name: 'Auto complete',
     info: 'Text input with suggestion list (autocomplete)',
     link:'Autocomplete'
   },
   {
-    name: 'CountDownTimer',
+    name: 'CountDown Timer',
     info: 'Countdown timer with start/pause/reset controls',
     link:'CountDownTimer'
   },
   {
-    name: 'CryptoDashBoard',
+    name: 'Crypto DashBoard',
     info: 'Fetches and displays cryptocurrency prices',
     link:'CryptoDashBoard'
   },
   {
-    name: 'CenterDiv',
+    name: 'Center Div',
     info: 'Example of vertically and horizontally centered content',
     link:'CenterDiv'
   },
@@ -30,7 +30,7 @@ export const data = [
     link:'CShape'
   },
   {
-    name: 'CurrencyCalculator',
+    name: 'Currency Calculator',
     info: 'Simple currency conversion UI',
     link:'CurrencyCalculator'
   },
@@ -45,32 +45,32 @@ export const data = [
     link:'DrumKit'
   },
   {
-    name: 'EmployeeInfoPortal',
+    name: 'Employee InfoPortal',
     info: 'Employee list and details viewer',
     link:'EmployeeInfoPortal'
   },
   {
-    name: 'Eventpropagation',
+    name: 'Event propagation',
     info: 'Demonstrates event bubbling and delegation',
     link:'Eventpropagation'
   },
   {
-    name: 'FileExplorer',
+    name: 'File Explorer',
     info: 'UI mock of a file explorer and toolbar actions',
     link:'FileExplorer'
   },
   {
-    name: 'GRIDFLEX',
+    name: 'GRID FLEX',
     info: 'Grid and flexbox layout examples',
     link:'GRIDFLEX'
   },
   {
-    name: 'InfiniteScroll',
+    name: 'Infinite Scroll',
     info: 'Loading more content as you scroll (infinite scroll)',
     link:'InfiniteScroll'
   },
   {
-    name: 'StarRating',
+    name: 'Star Rating',
     info: 'Interactive star rating component',
     link:'StarRating'
   },
@@ -82,9 +82,9 @@ export const data = [
     name: 'ToDoList',
     info: 'Add, complete, and remove to-do items',
     link:'ToDoList'
-  }
-  ,{
-    name: 'TrafficLight',
+  },
+  {
+    name: 'Traffic Light',
     info: 'Traffic light simulator with timed transitions',
     link:'TrafficLight'
   }
